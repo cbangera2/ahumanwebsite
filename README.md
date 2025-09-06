@@ -1,7 +1,8 @@
 
 # Human — Personal Website
 
-Welcome to my personal website.
+Welcome to my personal website: https://cbangera2.github.io/ahumanwebsite/.
+
 <img width="1510" height="853" alt="image" src="https://github.com/user-attachments/assets/79751226-2529-4381-8092-f18df56a18e5" />
 <img width="1511" height="854" alt="image" src="https://github.com/user-attachments/assets/0ac9544e-6a78-4d7d-8e94-2d5510d8db8f" />
 <img width="1508" height="850" alt="image" src="https://github.com/user-attachments/assets/a892ba95-e1bd-49d7-a2a7-85ea71c2e382" />
