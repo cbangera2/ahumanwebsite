@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+/* Mobile styles */
+@media (max-width: 600px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 6vw;
+    line-height: 1.1;
+    word-break: break-word;
+  }
+  .hero-image, .main-image {
+    width: 90vw;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .quote-section {
+    padding: 1.5rem 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+  }
+  .quote-block {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+  .quote-author {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  .large-title {
+    font-size: 2.5rem;
+    word-break: break-word;
+    text-align: center;
+  }
+  .overlap-fix {
+    position: static !important;
+    margin-bottom: 1rem;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Timeline scan animation */
+@keyframes scanY {
+  0% { transform: translateY(-20%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.animate-scan-y {
+  animation: scanY 3.5s linear infinite;
+}
+
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-caret {
+  animation: caretBlink 1s steps(1, end) infinite;
+}
+
+/* Soft glow pulse for icons/dots */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(56,189,248,0.6); transform: scale(1); }
+  50% { box-shadow: 0 0 16px rgba(56,189,248,0.9); transform: scale(1.08); }
+}
+.animate-pulse-glow { animation: pulseGlow 1.8s ease-in-out infinite; }
+
+/* Sheen sweep across element */
+@keyframes sheenX {
+  0% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateX(400%); opacity: 0; }
+}
+.animate-sheen-x { animation: sheenX 1.2s ease-out; }
+
+/* Continuous horizontal scan used on Library top border */
+@keyframes scanX {
+  0% { transform: translateX(-50%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(250%); opacity: 0; }
+}
+.animate-scan-x { animation: scanX 2.8s linear infinite; }
+
+/* Rotating scan border (around rounded element) */
+.scan-border {
+  position: relative;
+}
+/* Thin traveling blue line around border */
+.scan-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.9), transparent);
+  background-size: 200% 1px;
+  background-repeat: no-repeat;
+  background-position: -50% 0;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: 0.5rem; /* match rounded-lg */
+  animation: borderSweep 2.6s linear infinite;
+}
+
+@keyframes borderSweep {
+  0% { background-position: 0% 0; }
+  25% { background-position: 100% 0; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 0; }
+}
+
+/* Pulsing border glow (Timeline-like pulse) */
+@keyframes borderPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(56,189,248,0.28),
+      0 0 10px rgba(56,189,248,0.22),
+      inset 0 0 10px rgba(56,189,248,0.16);
+    opacity: 0.85;
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(56,189,248,0.45),
+      0 0 18px rgba(56,189,248,0.45),
+      inset 0 0 18px rgba(56,189,248,0.28);
+    opacity: 1;
+  }
+}
+
+.pulse-border {
+  position: relative;
+}
+.pulse-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: borderPulse 2.2s ease-in-out infinite;
+}
+
+/* Single scan line traveling around border (clear line moving across) */
+@property --scan-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateScan {
+  to { --scan-angle: 360deg; }
+}
+
+.moving-border { position: relative; }
+.moving-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px; /* provides the ring stroke thickness */
+  /* narrow wedge acts like a single bright line; masked to only border area */
+  background: conic-gradient(
+    from var(--scan-angle),
+    transparent 0deg,
+    rgba(56,189,248,0.95) 4deg,
+    transparent 8deg
+  );
+  background-origin: border-box;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateScan 3s linear infinite;
+}
+
+/* Quarter-segment scan (animate between two angles once) */
+@property --start-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --end-angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: false;
+}
+@keyframes scanSegment {
+  from { --scan-angle: var(--start-angle); }
+  to { --scan-angle: var(--end-angle); }
+}
+.moving-border-segment { position: relative; }
+.moving-border-segment::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--scan-angle),
+    transparent 0deg,
+    rgba(56,189,248,0.95) 4deg,
+    transparent 8deg
+  );
+  background-origin: border-box;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: scanSegment var(--segment-duration, 0.8s) linear forwards;
+}
+
+/* Podcast animations */
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spinSlow 12s linear infinite; }
+
+@keyframes eq1 { 0%, 100% { height: 4px; } 50% { height: 16px; } }
+@keyframes eq2 { 0%, 100% { height: 6px; } 50% { height: 12px; } }
+@keyframes eq3 { 0%, 100% { height: 8px; } 50% { height: 18px; } }
+.animate-eq-1 { animation: eq1 1s ease-in-out infinite; }
+.animate-eq-2 { animation: eq2 1.2s ease-in-out infinite; }
+.animate-eq-3 { animation: eq3 0.9s ease-in-out infinite; }
+
+/* Holographic ribbon gradient */
+.holo-ribbon {
+  background: conic-gradient(
+    from 0deg,
+    rgba(56,189,248,0.15),
+    rgba(16,185,129,0.15),
+    rgba(99,102,241,0.15),
+    rgba(56,189,248,0.15)
+  );
+  box-shadow: 0 4px 24px rgba(56,189,248,0.25);
+  border: 1px solid rgba(56,189,248,0.25);
+  filter: saturate(120%);
+}
+
+/* (Removed sheen animation over avatar by request) */
+
+/* Simple barcode via repeating linear-gradient */
+.barcode-lines {
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0 1px,
+    #fff 1px 2px,
+    #000 2px 4px,
+    #fff 4px 5px,
+    #000 5px 6px
+  );
+}
