@@ -117,6 +117,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  pointer-events: none;
   padding: 1px;
   background: linear-gradient(90deg, transparent, rgba(56,189,248,0.9), transparent);
   background-size: 200% 1px;
@@ -184,6 +185,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
   border-radius: inherit;
   padding: 1px; /* provides the ring stroke thickness */
   /* narrow wedge acts like a single bright line; masked to only border area */
@@ -222,6 +224,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  pointer-events: none;
   padding: 1px;
   background: conic-gradient(
     from var(--scan-angle),

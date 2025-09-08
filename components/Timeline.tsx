@@ -44,7 +44,7 @@ const defaultItems: TimelineItem[] = [
   },
 ];
 
-export default function Timeline({ items = defaultItems }: { items?: TimelineItem[] }) {
+export default function Timeline({ items = defaultItems, id = "timeline" }: { items?: TimelineItem[]; id?: string }) {
   const [activeIdx, setActiveIdx] = useState(0);
   useEffect(() => {
     if (!items.length) return;
@@ -56,7 +56,7 @@ export default function Timeline({ items = defaultItems }: { items?: TimelineIte
   }, [items.length]);
 
   return (
-    <section className="relative mx-auto max-w-3xl px-6 py-24">
+    <section id={id} className="relative mx-auto max-w-3xl px-6 py-24">
       {/* HUD grid backdrop */}
       <div
         aria-hidden

@@ -5,15 +5,17 @@ type QuoteProps = {
 	text?: string;
 	author?: string;
 	className?: string;
+	id?: string;
 };
 
 export default function Quote({
 	text = "The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.",
 	author = "Albert Camus",
 	className = "",
+	id = "quote",
 }: QuoteProps) {
 	return (
-		<section className={`relative px-6 py-24 md:py-32 bg-[#020617] ${className}`}>
+		<section id={id} className={`relative px-6 py-24 md:py-32 bg-[#020617] ${className}`}>
 			{/* Smooth color bridge from hero into quote */}
 			<div className="pointer-events-none absolute inset-x-0 -top-8 h-24 bg-gradient-to-b from-[#020617] via-[#081022]/70 to-transparent" />
 

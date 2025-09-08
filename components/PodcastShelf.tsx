@@ -13,7 +13,7 @@ const defaultPodcasts: Podcast[] = [
   { title: "Dan Carlin's Hardcore History", author: "Dan Carlin", href: "https://www.dancarlin.com/hardcore-history-series/" },
 ];
 
-export default function PodcastShelf({ id, podcasts = defaultPodcasts }: { id?: string; podcasts?: Podcast[] }) {
+export default function PodcastShelf({ id = "podcasts", podcasts = defaultPodcasts }: { id?: string; podcasts?: Podcast[] }) {
   // One-at-a-time moving scan along the row
   const [activeIdx, setActiveIdx] = useState(0);
   useEffect(() => {

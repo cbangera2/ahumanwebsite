@@ -5,12 +5,14 @@ import Library from "@/components/Library";
 import PodcastShelf from "@/components/PodcastShelf";
 import HumanVerification from "@/components/HumanVerification";
 import Footer from "@/components/Footer";
+import MockTerminal from "@/components/MockTerminal";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Hero3D />
       <Quote />
+  <MockTerminal />
       <Timeline />
   <HumanVerification />
   <Library id="library" />

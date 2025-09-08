@@ -20,7 +20,7 @@ const defaultBooks: Book[] = [
   { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/book/show/40202397-chrysalis" },
 ];
 
-export default function Library({ id, books = defaultBooks }: { id?: string; books?: Book[] }) {
+export default function Library({ id = "library", books = defaultBooks }: { id?: string; books?: Book[] }) {
   // One-at-a-time moving scan along the row
   const [activeIdx, setActiveIdx] = useState(0);
   useEffect(() => {

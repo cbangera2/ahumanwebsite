@@ -107,8 +107,8 @@ export default function Hero3D({
 	       // Scrolls down by the height of the viewport
 	       window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" });
        };
-       return (
-	       <div className="relative h-[90vh] w-full">
+	   return (
+		   <div id="hero" className="relative h-[90vh] w-full">
 		       {/* Scroll Down button for mobile at top center */}
 		       <button
 			       className="md:hidden absolute left-1/2 top-4 -translate-x-1/2 z-[100] bg-slate-900/95 text-sky-300 px-5 py-2 rounded-full shadow-2xl border border-sky-400 flex items-center gap-2 animate-bounce"
