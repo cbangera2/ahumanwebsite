@@ -4,6 +4,7 @@ import Timeline from "@/components/Timeline";
 import Library from "@/components/Library";
 import PodcastShelf from "@/components/PodcastShelf";
 import HumanVerification from "@/components/HumanVerification";
+import Globe from "@/components/Globe";
 import Footer from "@/components/Footer";
 import MockTerminal from "@/components/MockTerminal";
 
@@ -15,6 +16,7 @@ export default function Home() {
   <MockTerminal />
       <Timeline />
   <HumanVerification />
+  <Globe />
   <Library id="library" />
   <PodcastShelf id="podcasts" />
   <Footer />
