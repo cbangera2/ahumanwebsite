@@ -7,6 +7,7 @@ import HumanVerification from "@/components/HumanVerification";
 import Globe from "@/components/Globe";
 import Footer from "@/components/Footer";
 import MockTerminal from "@/components/MockTerminal";
+import YouTubeChannels from "@/components/YouTubeChannels";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
   <HumanVerification />
   <Globe />
   <Library id="library" />
+  <YouTubeChannels id="hobbies" />
   <PodcastShelf id="podcasts" />
   <Footer />
     </main>
