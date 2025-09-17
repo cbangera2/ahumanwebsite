@@ -41,11 +41,13 @@ function PCDPointCloud({ url, color = "#7dd3fc", size = 0.01 }: { url: string; c
 
 	useEffect(() => {
 		let mounted = true;
+			// Capture ref at effect start to use in async and cleanup
+			const groupRef = group.current;
 		(async () => {
 			const { PCDLoader } = await import("three-stdlib");
 			const loader = new PCDLoader();
-			loader.load(url, (points: THREE.Points) => {
-				if (!mounted || !group.current) return;
+				loader.load(url, (points: THREE.Points) => {
+					if (!mounted || !groupRef) return;
 				const material = new THREE.PointsMaterial({
 					size,
 					color: new THREE.Color(color),
@@ -56,15 +58,14 @@ function PCDPointCloud({ url, color = "#7dd3fc", size = 0.01 }: { url: string; c
 				});
 				points.material = material;
 				points.geometry.center();
-				group.current.add(points);
+					groupRef.add(points);
 				// Removed unused expression and 'any' type usage
 			});
 		})();
 		return () => {
 			mounted = false;
-			// Copy ref value inside cleanup for React best practices
-			const g = group.current;
-			if (g) g.clear();
+				// Use captured ref value inside cleanup
+				if (groupRef) groupRef.clear();
 		};
 	}, [url, color, size, gl]);
 

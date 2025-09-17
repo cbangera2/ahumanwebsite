@@ -6,9 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-  "lint": "eslint",
-  "gen:ply": "node scripts/generateSyntheticLidar.mjs",
-  "gen:adas": "node scripts/generateADASLidar.mjs"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "husky",
+    "gen:ply": "node scripts/generateSyntheticLidar.mjs",
+    "gen:adas": "node scripts/generateADASLidar.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.4",
@@ -29,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "husky": "^9.1.6"
   }
 }

@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Stop on first error
+set -e
+
+# Lint staged codebase
+pnpm lint
+
+# Build to catch type errors and ensure prod compiles
+pnpm build

@@ -56,7 +56,7 @@ export default function IPodNano({ id = "music", tracks = defaultTracks }: { id?
     let cancelled = false;
     const load = async () => {
       try {
-        const res = await fetch("/data/The_Classics.csv", { cache: "force-cache" });
+        const res = await fetch("./data/The_Classics.csv", { cache: "force-cache" });
         if (!res.ok) return;
         const text = await res.text();
   const rows = parseCsv(text);
