@@ -8,6 +8,7 @@ import Globe from "@/components/Globe";
 import Footer from "@/components/Footer";
 import MockTerminal from "@/components/MockTerminal";
 import YouTubeChannels from "@/components/YouTubeChannels";
+import IPodNano from "@/components/IPodNano";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
   <Library id="library" />
   <YouTubeChannels id="hobbies" />
   <PodcastShelf id="podcasts" />
+  <IPodNano id="music" />
   <Footer />
     </main>
   );
