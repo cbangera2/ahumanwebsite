@@ -9,21 +9,29 @@ import Footer from "@/components/Footer";
 import MockTerminal from "@/components/MockTerminal";
 import YouTubeChannels from "@/components/YouTubeChannels";
 import IPodNano from "@/components/IPodNano";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950">
+      {/* Sections */}
+
+      {/* Professional */}
       <Hero3D />
       <Quote />
-  <MockTerminal />
+      <MockTerminal />
       <Timeline />
-  <HumanVerification />
-  <Globe />
-  <Library id="library" />
-  <YouTubeChannels id="hobbies" />
-  <PodcastShelf id="podcasts" />
-  <IPodNano id="music" />
-  <Footer />
+      <Projects id="projects" />
+
+      {/* Personal */}
+      <HumanVerification />
+      <Globe />
+      <Library id="library" />
+      <YouTubeChannels id="hobbies" />
+      <PodcastShelf id="podcasts" />
+      <IPodNano id="music" />
+
+      <Footer />
     </main>
   );
 }
