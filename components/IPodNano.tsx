@@ -198,23 +198,35 @@ export default function IPodNano({ id = "music", tracks = defaultTracks }: { id?
           </div>
 
           {/* Track list */}
-          <div className="mx-4 mt-2 mb-4 space-y-2 max-h-40 overflow-auto pr-1">
+          <div className="mx-4 mt-2 mb-4 space-y-2 max-h-40 overflow-y-auto overflow-x-hidden pr-1">
             {sourceTracks.map((t, i) => (
               <button
                 key={`${t.title}-${i}`}
                 onClick={() => {
                   setIndex(i);
                 }}
-                className={`w-full text-left px-3 py-2 rounded-lg ring-1 transition-all duration-200 ${
+                className={`group w-full text-left px-3 py-2 rounded-lg ring-1 transition-all duration-200 ${
                   i === index
                     ? "bg-sky-400/10 ring-sky-400/40 text-white"
                     : "bg-slate-900/40 ring-slate-700/40 text-slate-200 hover:bg-slate-900/60"
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium leading-tight truncate">{t.title}</div>
-                    <div className="text-[10px] uppercase tracking-wider text-sky-200/80">{t.artist}</div>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div
+                      className="font-medium leading-tight truncate"
+                      title={t.title}
+                      aria-label={t.title}
+                    >
+                      {t.title}
+                    </div>
+                    <div
+                      className="text-[10px] uppercase tracking-wider text-sky-200/80 truncate"
+                      title={t.artist}
+                      aria-label={t.artist}
+                    >
+                      {t.artist}
+                    </div>
                   </div>
                   {i === index && (
                     <span className="ml-2 h-2 w-2 rounded-full bg-sky-400/80 animate-pulse-glow" />
