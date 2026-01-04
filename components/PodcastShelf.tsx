@@ -9,8 +9,11 @@ type Podcast = {
 };
 
 const defaultPodcasts: Podcast[] = [
+  { title:"Dwarkesh Patel", author: "Dwarkesh Patel", href: "https://www.youtube.com/c/DwarkeshPatel" },
+  { title: "The Peterman Pod", author: "Ryan Peterman", href: "https://www.youtube.com/playlist?list=PLmvMm6hsJgCc9VPDgq8SQEFMln_azyKSG"},
   { title: "Fall of Civilizations", author: "Paul M.M. Cooper", href: "https://fallofcivilizationspodcast.com/" },
   { title: "Dan Carlin's Hardcore History", author: "Dan Carlin", href: "https://www.dancarlin.com/hardcore-history-series/" },
+  {title: "Dust", author: "Dust Studios", href: "https://www.youtube.com/channel/UC7sDT8jZ76VLV1u__krUutA"},
 ];
 
 export default function PodcastShelf({ id = "podcasts", podcasts = defaultPodcasts }: { id?: string; podcasts?: Podcast[] }) {
