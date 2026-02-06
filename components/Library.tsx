@@ -6,17 +6,20 @@ export type Book = {
   title: string;
   author?: string;
   href?: string;
+  cover?: string;
 };
 
 const defaultBooks: Book[] = [
-  { title: "Children of Time", author: "Adrian Tchaikovsky", href: "https://www.goodreads.com/book/show/25499718-children-of-time" },
-  { title: "Abundance", author: "Ezra Klein", href: "https://www.goodreads.com/book/show/176444106-abundance" },
+  { title: "Children of Time", author: "Adrian Tchaikovsky", href: "https://www.goodreads.com/book/show/25499718-children-of-time", cover: "/images/books/children-of-time.jpg" },
+  { title: "Abundance", author: "Ezra Klein", href: "https://www.goodreads.com/book/show/176444106-abundance", cover: "/images/books/abundance.jpg" },
   {
     title: "How to Invent Everything: A Survival Guide for the Stranded Time Traveler",
     author: "Ryan North",
     href: "https://www.goodreads.com/book/show/39026990-how-to-invent-everything",
+    cover: "/images/books/how-to-invent-everything.jpg",
   },
-  { title: "The Dark Forest (The Three-Body Problem, #2)", author: "Liu, Cixin", href: "https://www.goodreads.com/book/show/23168817-the-dark-forest" },
+  { title: "The Dark Forest (The Three-Body Problem, #2)", author: "Liu, Cixin", href: "https://www.goodreads.com/book/show/23168817-the-dark-forest", cover: "/images/books/the-dark-forest.jpg" },
+  { title: "Project Hail Mary", author: "Andy Weir", href: "https://www.goodreads.com/book/show/54493401-project-hail-mary", cover: "/images/books/project-hail-mary.jpg" },
   { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/book/show/40202397-chrysalis" },
 ];
 
@@ -45,7 +48,7 @@ export default function Library({ id = "library", books = defaultBooks }: { id?:
 
         {/* Scroll row */}
         <div
-          className="relative -mx-6 px-6 flex gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory pb-6 z-10"
+          className="relative -mx-6 px-6 pt-8 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 z-10"
           aria-label="Bookshelf"
         >
           {books.map((b, i) => {
@@ -110,16 +113,26 @@ export default function Library({ id = "library", books = defaultBooks }: { id?:
                     <motion.div
                       variants={{ rest: { rotateY: 0, z: 0 }, hover: { rotateY: -30, z: 10 } }}
                       className="absolute inset-0 overflow-hidden rounded-lg ring-1 ring-sky-400/25 bg-slate-900/20 backdrop-blur-sm"
-                      style={{ backgroundImage: cover, transformOrigin: "left center", transformStyle: "preserve-3d" }}
+                      style={{ backgroundImage: b.cover ? undefined : cover, transformOrigin: "left center", transformStyle: "preserve-3d" }}
                     >
+                      {/* Cover image */}
+                      {b.cover && (
+                        <img
+                          src={b.cover}
+                          alt={b.title}
+                          className="absolute inset-0 h-full w-full object-cover rounded-lg"
+                        />
+                      )}
                       {/* Spine stays attached to the left */}
                       <div className="absolute inset-y-0 left-0 w-2.5" style={{ background: spine }} />
-                      {/* Grid overlay */}
-                      <div className="pointer-events-none absolute inset-0 opacity-25" style={{ backgroundImage: grid, backgroundSize: "16px 16px" }} />
+                      {/* Grid overlay (only when no cover image) */}
+                      {!b.cover && <div className="pointer-events-none absolute inset-0 opacity-25" style={{ backgroundImage: grid, backgroundSize: "16px 16px" }} />}
                       {/* Sheen sweep on hover */}
                       <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100">
                         <div className="absolute -left-[150%] top-0 bottom-0 w-[40%] rotate-12 bg-gradient-to-r from-transparent via-white/12 to-transparent animate-sheen-x" />
                       </div>
+                      {/* Darkened overlay for text readability on cover images */}
+                      {b.cover && <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />}
                       {/* Corner brackets */}
                       <div className="pointer-events-none absolute inset-0">
                         <div className="absolute left-1 top-1 h-3 w-3 border-l border-t border-sky-300/50" />
@@ -128,9 +141,9 @@ export default function Library({ id = "library", books = defaultBooks }: { id?:
                       {/* Sheen */}
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-200/10 via-transparent to-transparent" />
                       <div className="absolute inset-0 p-3 pl-4 flex flex-col justify-end">
-                        <div className="text-slate-50 text-[11px] font-semibold leading-tight line-clamp-3 drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">{b.title}</div>
+                        <div className="text-slate-50 text-[11px] font-semibold leading-tight line-clamp-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">{b.title}</div>
                         {b.author && (
-                          <div className="text-sky-200/90 font-mono uppercase tracking-wider text-[9px] mt-1 line-clamp-1">{b.author}</div>
+                          <div className="text-sky-200/90 font-mono uppercase tracking-wider text-[9px] mt-1 line-clamp-1 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">{b.author}</div>
                         )}
                       </div>
                     </motion.div>
