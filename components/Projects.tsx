@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export type Project = {
   title: string;
@@ -47,15 +46,6 @@ const defaultProjects: Project[] = [
 ];
 
 export default function Projects({ id = "projects", projects = defaultProjects }: { id?: string; projects?: Project[] }) {
-  // One-at-a-time moving scan/highlight like Library
-  const [activeIdx, setActiveIdx] = useState(0);
-  const total = projects.length;
-  useEffect(() => {
-    if (!total) return;
-    const SCAN_DURATION_MS = 3000;
-    const t = setInterval(() => setActiveIdx((i) => (i + 1) % total), SCAN_DURATION_MS);
-    return () => clearInterval(t);
-  }, [total]);
 
   return (
     <section id={id} className="relative mx-auto max-w-6xl px-6 py-24">
@@ -81,19 +71,9 @@ export default function Projects({ id = "projects", projects = defaultProjects }
         </p>
       </div>
 
-      {/* Section top scan line */}
-      <div className="relative mb-6" aria-hidden>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent" />
-        <div className="absolute -top-[1px] left-0 h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-300/80 to-transparent animate-scan-x" />
-      </div>
-
-      {/* Fading edges for scroll hint */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#020617] to-transparent z-0" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#020617] to-transparent z-0" />
-
-      {/* Horizontal scroll row */}
+      {/* Grid layout */}
       <div
-        className="relative -mx-6 px-6 flex gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory pb-2 z-10"
+        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 z-10"
         aria-label="Projects"
       >
         {projects.map((p, idx) => (
@@ -102,7 +82,7 @@ export default function Projects({ id = "projects", projects = defaultProjects }
             href={p.href}
             target={p.href ? "_blank" : undefined}
             rel={p.href ? "noopener noreferrer" : undefined}
-            className="snap-start shrink-0 w-[20rem] md:w-[22rem] group relative rounded-xl border border-slate-800/70 bg-slate-900/30 backdrop-blur px-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+            className="group relative rounded-xl border border-slate-800/70 bg-slate-900/30 backdrop-blur px-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 flex flex-col"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -110,11 +90,7 @@ export default function Projects({ id = "projects", projects = defaultProjects }
             whileHover={{ y: -6 }}
             aria-label={`${p.title}${p.href ? ", opens in new tab" : ""}`}
           >
-            {/* Animated moving border when active */}
-            <div className={`pointer-events-none absolute inset-0 rounded-xl ${activeIdx === idx ? "moving-border" : ""}`} />
 
-            {/* Subtle glow when active */}
-            <div className={`absolute -inset-[1px] rounded-xl ${activeIdx === idx ? "shadow-[0_0_32px_rgba(56,189,248,0.18)]" : ""}`} aria-hidden />
 
             {/* Decorative brackets */}
             <div className="pointer-events-none absolute inset-0">
@@ -126,7 +102,7 @@ export default function Projects({ id = "projects", projects = defaultProjects }
             <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/25 to-transparent" />
 
             {/* Content */}
-            <div className="relative">
+            <div className="relative flex flex-col flex-1">
               <h3 className="text-white text-lg md:text-xl font-semibold tracking-tight">
                 <span className="bg-gradient-to-r from-sky-200 to-sky-400/80 bg-clip-text text-transparent">
                   {p.title}
@@ -147,10 +123,10 @@ export default function Projects({ id = "projects", projects = defaultProjects }
               )}
 
               {p.bullets && p.bullets.length > 0 && (
-                <ul className="mt-4 space-y-2 text-slate-300/90">
+                <ul className="mt-4 space-y-2 text-slate-300/90 flex-1">
                   {p.bullets.map((b, bIdx) => (
                     <li key={`${p.title}-bullet-${bIdx}`} className="flex gap-2">
-                      <span className="mt-[7px] h-[6px] w-[6px] rounded-full bg-sky-400/90 shadow-[0_0_10px_rgba(56,189,248,0.6)]" aria-hidden />
+                      <span className="mt-[7px] h-[6px] w-[6px] shrink-0 rounded-full bg-sky-400/90 shadow-[0_0_10px_rgba(56,189,248,0.6)]" aria-hidden />
                       <span className="leading-relaxed">{b}</span>
                     </li>
                   ))}
