@@ -156,12 +156,8 @@ export default function YouTubeChannels({ id = "hobbies" }: { id?: string }) {
   const count = channels.length;
   const step = 360 / count;
 
-  const clampWrap = useCallback(
-    (i: number) => ((i % count) + count) % count,
-    [count]
-  );
-  const next = useCallback(() => setActive((a) => clampWrap(a + 1)), [clampWrap]);
-  const prev = useCallback(() => setActive((a) => clampWrap(a - 1)), [clampWrap]);
+  const next = useCallback(() => setActive((a) => (a + 1) % count), [count]);
+  const prev = useCallback(() => setActive((a) => (a - 1 + count) % count), [count]);
 
   // radius measurement for responsiveness
   const stageRef = useRef<HTMLDivElement>(null);
@@ -172,7 +168,6 @@ export default function YouTubeChannels({ id = "hobbies" }: { id?: string }) {
       if (!el) return;
       const w = el.clientWidth;
       const h = el.clientHeight;
-      // Slightly larger circle: raise min, reduce padding, raise cap
       const r = Math.max(130, Math.min(Math.floor(Math.min(w, h) / 2) - 52, 280));
       setRadius(r);
     };
@@ -183,8 +178,11 @@ export default function YouTubeChannels({ id = "hobbies" }: { id?: string }) {
 
   // gestures: wheel and drag
   const dragStartX = useRef<number | null>(null);
+  const wheelCooldown = useRef(false);
+
   const onPointerDown = (e: React.PointerEvent) => {
     dragStartX.current = e.clientX;
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
   };
   const onPointerUp = (e: React.PointerEvent) => {
     if (dragStartX.current == null) return;
@@ -194,11 +192,23 @@ export default function YouTubeChannels({ id = "hobbies" }: { id?: string }) {
     if (dx < 0) next();
     else prev();
   };
-  const onWheel = (e: React.WheelEvent) => {
-    if (Math.abs(e.deltaY) < 10 && Math.abs(e.deltaX) < 10) return;
-    if ((Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) > 0) next();
-    else prev();
-  };
+  // Attach wheel listener as non-passive so preventDefault works
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      if (wheelCooldown.current) return;
+      if (Math.abs(e.deltaY) < 10 && Math.abs(e.deltaX) < 10) return;
+      e.preventDefault();
+      wheelCooldown.current = true;
+      setTimeout(() => { wheelCooldown.current = false; }, 200);
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (delta > 0) next();
+      else prev();
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, [next, prev]);
 
   // auto-rotate with smart pausing
   const [hovered, setHovered] = useState(false);
@@ -283,11 +293,10 @@ export default function YouTubeChannels({ id = "hobbies" }: { id?: string }) {
         aria-roledescription="Rotary dial of YouTube channels"
         aria-label={`Selected: ${channels[active].name}`}
         onKeyDown={onKeyDown}
-  onPointerEnter={() => setHovered(true)}
-  onPointerLeave={() => setHovered(false)}
+        onPointerEnter={() => setHovered(true)}
+        onPointerLeave={() => setHovered(false)}
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
-        onWheel={onWheel}
       >
         {/* Outer ring glow and ticks */}
         <div
