@@ -10,17 +10,37 @@ export type Book = {
 };
 
 const defaultBooks: Book[] = [
-  { title: "Children of Time", author: "Adrian Tchaikovsky", href: "https://www.goodreads.com/book/show/25499718-children-of-time", cover: "/images/books/children-of-time.jpg" },
-  { title: "Abundance", author: "Ezra Klein", href: "https://www.goodreads.com/book/show/176444106-abundance", cover: "/images/books/abundance.jpg" },
+  {
+    title: "Children of Time",
+    author: "Adrian Tchaikovsky",
+    href: "https://www.goodreads.com/en/book/show/25499718-children-of-time",
+    cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1431014197i/25499718.jpg",
+  },
+  {
+    title: "Abundance",
+    author: "Ezra Klein",
+    href: "https://www.goodreads.com/en/book/show/176444106-abundance",
+    cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1737312514i/176444106.jpg",
+  },
   {
     title: "How to Invent Everything: A Survival Guide for the Stranded Time Traveler",
     author: "Ryan North",
-    href: "https://www.goodreads.com/book/show/39026990-how-to-invent-everything",
-    cover: "/images/books/how-to-invent-everything.jpg",
+    href: "https://www.goodreads.com/en/book/show/39026990-how-to-invent-everything",
+    cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1529337641i/39026990.jpg",
   },
-  { title: "The Dark Forest (The Three-Body Problem, #2)", author: "Liu, Cixin", href: "https://www.goodreads.com/book/show/23168817-the-dark-forest", cover: "/images/books/the-dark-forest.jpg" },
-  { title: "Project Hail Mary", author: "Andy Weir", href: "https://www.goodreads.com/book/show/54493401-project-hail-mary", cover: "/images/books/project-hail-mary.jpg" },
-  { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/book/show/40202397-chrysalis" },
+  {
+    title: "The Dark Forest (The Three-Body Problem, #2)",
+    author: "Liu, Cixin",
+    href: "https://www.goodreads.com/en/book/show/23168817-the-dark-forest",
+    cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1412064931i/23168817.jpg",
+  },
+  {
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    href: "https://www.goodreads.com/en/book/show/54493401-project-hail-mary",
+    cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1764703833i/54493401.jpg",
+  },
+  { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/en/book/show/40202397-chrysalis" },
 ];
 
 export default function Library({ id = "library", books = defaultBooks }: { id?: string; books?: Book[] }) {
