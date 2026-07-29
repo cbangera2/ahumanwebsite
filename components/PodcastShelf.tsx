@@ -10,7 +10,7 @@ type Podcast = {
 
 const defaultPodcasts: Podcast[] = [
   { title:"Dwarkesh Patel", author: "Dwarkesh Patel", href: "https://www.youtube.com/c/DwarkeshPatel", cover: "https://yt3.googleusercontent.com/lG-z7sTfhFIW2Ne1oXMHvXMXyZSaA02_I17gUel0GAEj7OypsSHQ7PE91Vp4bTbpm3PTIAWJdko=s900-c-k-c0x00ffffff-no-rj" },
-  { title: "Acquired", author: "Ben Gilbert and David Rosenthal", href: "https://www.acquired.fm/", cover: "/images/podcasts/acquired.jpg" },
+  { title: "Acquired", author: "Ben Gilbert and David Rosenthal", href: "https://www.acquired.fm/", cover: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/a8/e1/de/a8e1deff-9f88-4e55-a541-b0dc793c0cdc/mza_11539673419613154037.jpg/600x600bb.jpg" },
   { title: "The Peterman Pod", author: "Ryan Peterman", href: "https://www.youtube.com/playlist?list=PLmvMm6hsJgCc9VPDgq8SQEFMln_azyKSG", cover: "https://yt3.googleusercontent.com/ytc/AIdro_kCqRLvJy8gnJxpETdXRj9Ii4eiiQUei7N4WHmvFREE_Sos=s900-c-k-c0x00ffffff-no-rj" },
   { title: "Fall of Civilizations", author: "Paul M.M. Cooper", href: "https://fallofcivilizationspodcast.com/", cover: "/images/podcasts/fall-of-civ.jpg" },
   { title: "Dan Carlin's Hardcore History", author: "Dan Carlin", href: "https://www.dancarlin.com/hardcore-history-series/", cover: "/images/podcasts/hardcore.jpg" },
