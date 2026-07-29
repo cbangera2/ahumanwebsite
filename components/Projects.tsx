@@ -10,6 +10,24 @@ export type Project = {
 
 const defaultProjects: Project[] = [
   {
+    title: "Staylens: Local-First Hotel Search",
+    href: "https://github.com/cbangera2/staylenshotelsearch",
+    technologies: ["TypeScript", "React", "TanStack Start", "MapLibre", "Playwright"],
+    bullets: [
+      "Searches Hopper inventory and re-ranks hotels using review confidence, total price, and itinerary fit",
+      "Adds destination autocomplete, trip-place planning, detailed filters, and an interactive hotel map",
+    ],
+  },
+  {
+    title: "NovelCompass: Translated Novel Recommendations",
+    href: "https://github.com/cbangera2/NovelCompass",
+    technologies: ["Python", "FastAPI", "SQLite", "React", "TypeScript", "Vite"],
+    bullets: [
+      "Finds related translated novels through shared tags, reader recommendations, and curated lists",
+      "Supports catalog discovery, explainable novel-to-novel recommendations, and private Novel Updates profile import",
+    ],
+  },
+  {
     title: "BudgetLens: Interactive Financial Dashboard",
     href: "https://github.com/cbangera2/BudgetLens",
     technologies: ["Next.js", "React", "TypeScript", "PostgreSQL", "Docker", "Prisma", "shadcn/ui"],
