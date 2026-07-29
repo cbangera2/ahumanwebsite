@@ -40,6 +40,38 @@ const CONTENT = {
       description: "B.S.E in Computer Science, Minor in Business and Multidisciplinary Design.",
     },
   ],
+  projects: [
+    {
+      title: "Staylens: Local-First Hotel Search",
+      technologies: "TypeScript, React, TanStack Start, MapLibre, Playwright",
+      href: "https://github.com/cbangera2/staylenshotelsearch",
+    },
+    {
+      title: "NovelCompass: Translated Novel Recommendations",
+      technologies: "Python, FastAPI, SQLite, React, TypeScript, Vite",
+      href: "https://github.com/cbangera2/NovelCompass",
+    },
+    {
+      title: "BudgetLens: Interactive Financial Dashboard",
+      technologies: "Next.js, React, TypeScript, PostgreSQL, Docker, Prisma, shadcn/ui",
+      href: "https://github.com/cbangera2/BudgetLens",
+    },
+    {
+      title: "CreditKarmaExtractor: Chrome Extension for Transaction Export",
+      technologies: "JavaScript, Chrome Extensions",
+      href: "https://github.com/cbangera2/CreditKarmaExtractor",
+    },
+    {
+      title: "Compensation Calculator",
+      technologies: "TypeScript, React, Vite, Tailwind CSS",
+      href: "https://github.com/cbangera2/compensation-calculator",
+    },
+    {
+      title: "Personal Website",
+      technologies: "Next.js, React Three Fiber (R3F), Tailwind CSS",
+      href: "https://github.com/cbangera2/ahumanwebsite",
+    },
+  ],
   human: {
     name: "Chirag Bangera",
     id: "CB-24-HMN",
@@ -57,22 +89,42 @@ const CONTENT = {
     {
       title: "Children of Time",
       author: "Adrian Tchaikovsky",
-      href: "https://www.goodreads.com/book/show/25499718-children-of-time",
+      href: "https://www.goodreads.com/en/book/show/25499718-children-of-time",
     },
-    { title: "Abundance", author: "Ezra Klein", href: "https://www.goodreads.com/book/show/176444106-abundance" },
+    { title: "Abundance", author: "Ezra Klein", href: "https://www.goodreads.com/en/book/show/176444106-abundance" },
     {
       title: "How to Invent Everything: A Survival Guide for the Stranded Time Traveler",
       author: "Ryan North",
-      href: "https://www.goodreads.com/book/show/39026990-how-to-invent-everything",
+      href: "https://www.goodreads.com/en/book/show/39026990-how-to-invent-everything",
     },
     {
       title: "The Dark Forest (The Three-Body Problem, #2)",
       author: "Liu, Cixin",
-      href: "https://www.goodreads.com/book/show/23168817-the-dark-forest",
+      href: "https://www.goodreads.com/en/book/show/23168817-the-dark-forest",
     },
-    { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/book/show/40202397-chrysalis" },
+    {
+      title: "Project Hail Mary",
+      author: "Andy Weir",
+      href: "https://www.goodreads.com/en/book/show/54493401-project-hail-mary",
+    },
+    { title: "Chrysalis", author: "BeaverFur", href: "https://www.goodreads.com/en/book/show/40202397-chrysalis" },
   ],
   podcasts: [
+    {
+      title: "Dwarkesh Patel",
+      author: "Dwarkesh Patel",
+      href: "https://www.youtube.com/c/DwarkeshPatel",
+    },
+    {
+      title: "Acquired",
+      author: "Ben Gilbert and David Rosenthal",
+      href: "https://www.acquired.fm/",
+    },
+    {
+      title: "The Peterman Pod",
+      author: "Ryan Peterman",
+      href: "https://www.youtube.com/playlist?list=PLmvMm6hsJgCc9VPDgq8SQEFMln_azyKSG",
+    },
     {
       title: "Fall of Civilizations",
       author: "Paul M.M. Cooper",
@@ -83,7 +135,53 @@ const CONTENT = {
       author: "Dan Carlin",
       href: "https://www.dancarlin.com/hardcore-history-series/",
     },
+    {
+      title: "Dust",
+      author: "Dust Studios",
+      href: "https://www.youtube.com/channel/UC7sDT8jZ76VLV1u__krUutA",
+    },
   ],
+  youtube: [
+    { title: "Asianometry", href: "https://www.youtube.com/@Asianometry" },
+    { title: "Theo - t3.gg", href: "https://www.youtube.com/@t3dotgg" },
+    { title: "Veritasium", href: "https://www.youtube.com/@veritasium" },
+    { title: "AI Search", href: "https://www.youtube.com/@theAIsearch" },
+    { title: "Kevin Fang", href: "https://www.youtube.com/@kevinfaang" },
+    { title: "Fireship", href: "https://www.youtube.com/@Fireship" },
+    { title: "LaurieWired", href: "https://www.youtube.com/@lauriewired" },
+    { title: "bycloud", href: "https://www.youtube.com/@bycloudAI" },
+    { title: "3Blue1Brown", href: "https://www.youtube.com/@3blue1brown" },
+    { title: "AI Engineer", href: "https://www.youtube.com/@aiDotEngineer" },
+    { title: "Welch Labs", href: "https://www.youtube.com/@WelchLabsVideo" },
+    { title: "Kai Lentit", href: "https://www.youtube.com/@programmersarealsohuman5909" },
+    { title: "CultRepo", href: "https://www.youtube.com/@cultrepo" },
+    { title: "High Yield", href: "https://www.youtube.com/@HighYield" },
+    { title: "NeetCodeIO", href: "https://www.youtube.com/@NeetCodeIO" },
+    { title: "KRAZAM", href: "https://www.youtube.com/@KRAZAM" },
+  ],
+  places: [
+    "USA",
+    "Canada",
+    "United Kingdom",
+    "Spain",
+    "India",
+    "Japan",
+    "South Korea",
+    "Bahamas",
+    "Denmark",
+    "Ireland",
+    "Netherlands",
+    "Italy",
+  ],
+  music: {
+    title: "The Classics",
+    description: "24-track Spotify playlist featuring classical, contemporary piano, and instrumental music.",
+  },
+  blog: {
+    title: "Why “Human”?",
+    status: "Top Secret / Coming Soon",
+    description: "AI is everywhere — but the point isn’t replacement. It’s partnership.",
+  },
   links: {
     github: "https://github.com/cbangera2",
     linkedin: "https://www.linkedin.com/in/chirag-bangera24/",
@@ -95,10 +193,15 @@ const FILES = [
   "hero.txt",
   "quote.txt",
   "timeline.txt",
+  "projects.txt",
   "human.txt",
   "hobbies.txt",
+  "places.txt",
   "library.txt",
+  "youtube.txt",
   "podcasts.txt",
+  "music.txt",
+  "blog.txt",
   "links.txt",
   "all.txt",
 ];
@@ -116,6 +219,11 @@ function renderAll(): string {
     if (t.description) lines.push(`  ${t.description}`);
   });
   lines.push("");
+  lines.push("== Projects ==");
+  CONTENT.projects.forEach((p) => {
+    lines.push(`• ${p.title} — ${p.technologies} (${p.href})`);
+  });
+  lines.push("");
   lines.push("== Human Verification ==");
   lines.push(`${CONTENT.human.name} • ID: ${CONTENT.human.id}`);
   lines.push(CONTENT.human.details);
@@ -125,15 +233,30 @@ function renderAll(): string {
     lines.push(`• ${h.title}${h.subtitle ? " — " + h.subtitle : ""}${h.href ? ` (${h.href})` : ""}`);
   });
   lines.push("");
+  lines.push("== Places I've Been ==");
+  lines.push(CONTENT.places.join(" • "));
+  lines.push("");
   lines.push("== Library ==");
   CONTENT.library.forEach((b) => {
     lines.push(`• ${b.title}${b.author ? " — " + b.author : ""}${b.href ? ` (${b.href})` : ""}`);
+  });
+  lines.push("");
+  lines.push("== YouTube Recommendations ==");
+  CONTENT.youtube.forEach((channel) => {
+    lines.push(`• ${channel.title} (${channel.href})`);
   });
   lines.push("");
   lines.push("== Podcasts ==");
   CONTENT.podcasts.forEach((p) => {
     lines.push(`• ${p.title}${p.author ? " — " + p.author : ""}${p.href ? ` (${p.href})` : ""}`);
   });
+  lines.push("");
+  lines.push("== Music ==");
+  lines.push(`${CONTENT.music.title} — ${CONTENT.music.description}`);
+  lines.push("");
+  lines.push("== Blog ==");
+  lines.push(`${CONTENT.blog.title} — ${CONTENT.blog.status}`);
+  lines.push(CONTENT.blog.description);
   lines.push("");
   lines.push("== Links ==");
   lines.push(`• GitHub — ${CONTENT.links.github}`);
@@ -155,6 +278,9 @@ function catFile(name: string): string | null {
       return CONTENT.timeline
         .map((t) => `• ${t.title}${t.subtitle ? " — " + t.subtitle : ""}${t.description ? "\n  " + t.description : ""}`)
         .join("\n");
+    case "projects":
+    case "projects.txt":
+      return CONTENT.projects.map((p) => `• ${p.title} — ${p.technologies} (${p.href})`).join("\n");
     case "human":
     case "human.txt":
       return `${CONTENT.human.name} • ID: ${CONTENT.human.id}\n${CONTENT.human.details}`;
@@ -163,16 +289,28 @@ function catFile(name: string): string | null {
       return CONTENT.human.hobbies
         .map((h) => `• ${h.title}${h.subtitle ? " — " + h.subtitle : ""}${h.href ? ` (${h.href})` : ""}`)
         .join("\n");
+    case "places":
+    case "places.txt":
+      return CONTENT.places.map((place) => `• ${place}`).join("\n");
     case "library":
     case "library.txt":
       return CONTENT.library
         .map((b) => `• ${b.title}${b.author ? " — " + b.author : ""}${b.href ? ` (${b.href})` : ""}`)
         .join("\n");
+    case "youtube":
+    case "youtube.txt":
+      return CONTENT.youtube.map((channel) => `• ${channel.title} (${channel.href})`).join("\n");
     case "podcasts":
     case "podcasts.txt":
       return CONTENT.podcasts
         .map((p) => `• ${p.title}${p.author ? " — " + p.author : ""}${p.href ? ` (${p.href})` : ""}`)
         .join("\n");
+    case "music":
+    case "music.txt":
+      return `${CONTENT.music.title}\n${CONTENT.music.description}`;
+    case "blog":
+    case "blog.txt":
+      return `${CONTENT.blog.title} — ${CONTENT.blog.status}\n${CONTENT.blog.description}`;
     case "links":
     case "links.txt":
       return [`GitHub — ${CONTENT.links.github}`, `LinkedIn — ${CONTENT.links.linkedin}`, `Built with — ${CONTENT.links.builtWith}`].join(
@@ -282,7 +420,7 @@ export default function MockTerminal() {
       "  tree                 Display sections as a tree",
       "  cat <file>           Print a section (try: cat all)",
             "  pwd                  Print working directory",
-  "  open <section>       Scroll to a section (#quote | #timeline | #human | #library | #podcasts)",
+      "  open <section>       Scroll to any homepage section",
       "  whoami               Show current user",
       "  date                 Show current date/time",
       "  rm -rf /             (easter egg)",
@@ -371,15 +509,20 @@ export default function MockTerminal() {
         if (target.startsWith("#")) selector = target;
         else if (["quote", "quotes"].includes(target)) selector = "#quote";
         else if (["timeline", "time"].includes(target)) selector = "#timeline";
+        else if (["projects", "project", "work"].includes(target)) selector = "#projects";
         else if (["human", "id", "hv", "verify"].includes(target)) selector = "#human";
+        else if (["places", "travel", "globe"].includes(target)) selector = "#places";
         else if (["library", "books"].includes(target)) selector = "#library";
+        else if (["youtube", "videos", "hobbies"].includes(target)) selector = "#hobbies";
         else if (["podcasts", "podcast", "audio"].includes(target)) selector = "#podcasts";
-  else if (["/", "home", "top"].includes(target)) selector = "body";
-  else if (["hero"].includes(target)) selector = "#hero";
-  else if (["terminal", "console", "shell"].includes(target)) selector = "#terminal";
-  else if (["footer", "contact"].includes(target)) selector = "#footer";
+        else if (["music", "ipod", "playlist"].includes(target)) selector = "#music";
+        else if (["blog", "blogs"].includes(target)) selector = "#blogs";
+        else if (["/", "home", "top"].includes(target)) selector = "body";
+        else if (["hero"].includes(target)) selector = "#hero";
+        else if (["terminal", "console", "shell"].includes(target)) selector = "#terminal";
+        else if (["footer", "contact"].includes(target)) selector = "#footer";
         if (!selector) {
-          print("usage: open <#anchor | quote | timeline | human | library | podcasts>");
+          print("usage: open <hero | quote | timeline | projects | human | places | library | youtube | podcasts | music | blog | footer>");
           break;
         }
         const el = selector === "body" ? document.scrollingElement : (document.querySelector(selector) as HTMLElement | null);
@@ -408,7 +551,12 @@ export default function MockTerminal() {
   );
 
   const SECTION_SUGGESTIONS = useMemo(
-    () => ["#hero", "#quote", "#timeline", "#terminal", "#human", "#library", "#podcasts", "#footer", "hero", "quote", "timeline", "terminal", "human", "library", "podcasts", "footer", "top", "home", "/"],
+    () => [
+      "#hero", "#quote", "#terminal", "#timeline", "#projects", "#human", "#places", "#hobbies",
+      "#library", "#podcasts", "#music", "#blogs", "#footer", "hero", "quote", "terminal",
+      "timeline", "projects", "human", "places", "travel", "library", "books", "youtube",
+      "hobbies", "podcasts", "music", "blog", "footer", "top", "home", "/",
+    ],
     [],
   );
 
@@ -417,10 +565,15 @@ export default function MockTerminal() {
       "hero",
       "quote",
       "timeline",
+      "projects",
       "human",
       "hobbies",
+      "places",
       "library",
+      "youtube",
       "podcasts",
+      "music",
+      "blog",
       "links",
       "all",
       "*",
