@@ -225,6 +225,10 @@ const visited: Array<{ name: string; lat: number; lon: number }> = [
   { name: "Japan", lat: 35.6762, lon: 139.6503 },
   { name: "South Korea", lat: 37.5665, lon: 126.978 },
   { name: "Bahamas", lat: 25.0343, lon: -77.3963 },
+  { name: "Denmark", lat: 55.6761, lon: 12.5683 },
+  { name: "Ireland", lat: 53.3498, lon: -6.2603 },
+  { name: "Netherlands", lat: 52.3676, lon: 4.9041 },
+  { name: "Italy", lat: 41.9028, lon: 12.4964 },
 ];
 
 function VisitedMarkers({ radius = 1.48 }: { radius?: number }) {
@@ -298,9 +302,9 @@ function Rotator({ speed = 0.15, children }: { speed?: number; children: React.R
   return <group ref={ref}>{children}</group>;
 }
 
-export default function GlobeSection() {
+export default function GlobeSection({ id = "places" }: { id?: string }) {
   return (
-    <section className="relative mx-auto max-w-6xl px-6 py-20">
+    <section id={id} className="relative mx-auto max-w-6xl px-6 py-20">
       <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white tracking-tight">Places I&#39;ve Been</h2>
       <div className="relative h-[60vh] w-full rounded-2xl border border-slate-800/70 bg-slate-900/40 overflow-hidden">
         <Canvas camera={{ position: [0, 0, 4.5], fov: 55 }} dpr={[1, 1.5]} className="absolute inset-0">
