@@ -73,7 +73,7 @@ jobs:
       - name: Verify Pages export
         run: |
           test -f out/index.html
-          test "$(cat out/CNAME)" = "budgetlens.cbangera.com"
+          test "$(cat out/CNAME)" = "cbangera.com"
           grep -q '/_next/static/' out/index.html
           if grep -q '/ahumanwebsite/_next/' out/index.html; then
             echo "Unexpected project-page base path in exported HTML"
